@@ -1,5 +1,5 @@
 let mapleader = " "
-
+set encoding=utf-8
 "解决退格键失效
 set backspace=2
 syntax on

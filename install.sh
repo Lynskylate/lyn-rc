@@ -1,15 +1,27 @@
-$root=$(cd $(dirname 0) && pwd)
+#!/bin/bash
+set -e
+set -x
+root=$(cd `dirname $0` && pwd)
 
+if [ -e ~/.vimrc];then
+	mv ~/.vimrc ~/.vimrc.bk
+fi
 
-mv ~/.vimrc ~/.vimrc.bk
-cp $root/rcs/.vimrc ~/.vimrc
-cp $root/rcs/.tmux.conf ~/.tmux.conf
+if [ -e ~/.tmux.conf ];then
+        mv ~/.tmux.conf ~/.tmux.conf.bk
+fi
+
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+cp "$root/rcs/.vimrc" ~/.vimrc
+cp "$root/rcs/.tmux.conf" ~/.tmux.conf
 
 if [ -e ~/.vim/colors ];then
-        cp $root/rcs/vimcolors/inkpot_modified.vim
+        cp $root/rcs/vimcolors/inkpot_modified.vim ~/.vim/colors/
 else
         mkdir -p ~/.vim/colors
-        cp $root/rcs/vimcolors/inkpot_modified.vim
+        cp $root/rcs/vimcolors/inkpot_modified.vim ~/.vim/colors/
 fi
 
 

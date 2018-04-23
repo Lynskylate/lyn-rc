@@ -2,6 +2,7 @@ let mapleader = " "
 
 "解决退格键失效
 set backspace=2
+set encoding=utf-8
 syntax on
 "依据文本类型设置自动缩进
 filetype indent plugin on
