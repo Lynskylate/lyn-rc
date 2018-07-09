@@ -24,4 +24,5 @@ else
         cp $root/rcs/vimcolors/inkpot_modified.vim ~/.vim/colors/
 fi
 
+echo "Please vim a file and input PlugInstall"
 
