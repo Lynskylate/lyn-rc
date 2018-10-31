@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-set -x
+
 root=$(cd `dirname $0` && pwd)
 
 if [ -e ~/.vimrc];then
