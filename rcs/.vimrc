@@ -25,6 +25,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'rust-lang/rust.vim', { 'for': 'rs' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'scrooloose/nerdcommenter'
+Plug 'flazz/vim-colorschemes'
 Plug 'Valloric/YouCompleteMe'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
@@ -161,6 +162,7 @@ augroup ycm_config
     " let g:ycm_key_list_select_completion = ['<Down>']
     " let g:ycm_key_list_previous_completion=['<c-p>']
     " let g:ycm_key_list_previous_completion = ['<Up>']
+    let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
     set completeopt=longest,menu	"让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
     let g:ycm_python_binary_path = 'python'
     let g:ycm_key_invoke_completion = '<c-z>'
@@ -187,7 +189,7 @@ augroup ycm_config
                 \ 'cs,lua,javascript': ['re!\w{2}'],
                 \ }
 
-    nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR> " 跳转到定义处
+    nnoremap <leader>g :YcmCompleter GoTo<CR> " 跳转到定义处
 augroup END
 
 
@@ -241,3 +243,5 @@ function HeaderHtml()
     normal o
 endf
 autocmd bufnewfile *.html call HeaderHtml()
+
+" colorscheme molokai

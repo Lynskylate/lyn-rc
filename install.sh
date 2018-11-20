@@ -24,5 +24,7 @@ else
         cp $root/rcs/vimcolors/inkpot_modified.vim ~/.vim/colors/
 fi
 
+cp "$root/.ycm_extra_conf.py" ~/.vim/
+
 echo "Please vim a file and input PlugInstall"
 
