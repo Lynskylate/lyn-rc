@@ -3,7 +3,7 @@ set -e
 
 root=$(cd `dirname $0` && pwd)
 
-if [ -e ~/.vimrc];then
+if [ -e ~/.vimrc ];then
 	mv ~/.vimrc ~/.vimrc.bk
 fi
 
