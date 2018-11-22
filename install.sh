@@ -11,8 +11,11 @@ if [ -e ~/.tmux.conf ];then
         mv ~/.tmux.conf ~/.tmux.conf.bk
 fi
 
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if ! [ -e ~/.vim/autoload/plug.vim ]; then
+    echo "Now Install vim-plug"
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
 
 cp "$root/rcs/.vimrc" ~/.vimrc
 cp "$root/rcs/.tmux.conf" ~/.tmux.conf
@@ -26,5 +29,6 @@ fi
 
 cp "$root/.ycm_extra_conf.py" ~/.vim/
 
-echo "Please vim a file and input PlugInstall"
+sh "$root/base_sw.sh"
 
+echo "Please vim a file and input PlugInstall"
